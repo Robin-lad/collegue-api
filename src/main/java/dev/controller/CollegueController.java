@@ -10,6 +10,7 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,6 +31,7 @@ import dev.service.CollegueService;
  * @author robin
  *
  */
+@CrossOrigin
 @RestController
 @RequestMapping("collegues")
 public class CollegueController {

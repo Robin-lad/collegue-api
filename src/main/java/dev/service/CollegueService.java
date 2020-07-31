@@ -40,7 +40,7 @@ public class CollegueService {
 	}
 	
 	public Collegue getByMatricule(String mat) throws Exception {
-		Collegue c = collegueRepository.findByMatricule(UUID.fromString(mat));
+		Collegue c = collegueRepository.findByMatricule(mat);
 		return c;
 	}
 	
