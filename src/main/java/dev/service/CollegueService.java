@@ -47,4 +47,14 @@ public class CollegueService {
 		return list;
 	}
 	
+	public Collegue getByMatricule(String mat) {
+		Collegue c = collegueRepository.findByMatricule(mat);
+		
+		if(c == null) {
+			throw new RuntimeException("Pas de personne ayant ce matricule");
+		}
+		
+		return c;
+	}
+	
 }

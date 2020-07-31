@@ -19,4 +19,7 @@ public interface CollegueRepository extends JpaRepository<Collegue, Integer>{
 	
 	@Query("select c from Collegue c where c.nom = ?1")
 	Optional<List<Collegue>> findByName(String nom);
+	
+	@Query("select c from Collegue c where c.matricule = ?1")
+	Collegue findByMatricule(String mat);
 }
