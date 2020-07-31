@@ -5,7 +5,6 @@ package dev.service;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 import javax.transaction.Transactional;
@@ -34,12 +33,12 @@ public class CollegueService {
 		return collegueRepository.findAll();
 	}
 	
-	public Optional<List<Collegue>> getListMatricules(String nom) throws Exception {
-		Optional<List<Collegue>> c = collegueRepository.findByName(nom);
+	public List<Collegue> getListMatricules(String nom) throws Exception {
+		List<Collegue> c = collegueRepository.findByName(nom);
 		return c;
 	}
 	
-	public Collegue getByMatricule(String mat) throws Exception {
+	public Collegue getByMatricule(UUID mat) throws Exception {
 		Collegue c = collegueRepository.findByMatricule(mat);
 		return c;
 	}

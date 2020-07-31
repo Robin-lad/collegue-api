@@ -5,7 +5,7 @@ package dev.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+import java.util.UUID;
 
 import javax.validation.Valid;
 
@@ -50,10 +50,10 @@ public class CollegueController {
 	
 	@GetMapping
 	public List<String> getMatricules(@RequestParam("nom") String nom) throws Exception{
-		Optional<List<Collegue>> matricules = collegueService.getListMatricules(nom);
+		List<Collegue> matricules = collegueService.getListMatricules(nom);
 		List<String> list = new ArrayList<>();
-		if(matricules.isPresent()) {
-			for(Collegue col : matricules.get()) {
+		if(!matricules.isEmpty()) {
+			for(Collegue col : matricules) {
 				list.add(col.getMatricule().toString());
 			}
 		}
@@ -64,7 +64,7 @@ public class CollegueController {
 	}
 	
 	@GetMapping("{mat}")
-	public Collegue getByMatricule(@PathVariable String mat) throws Exception {
+	public Collegue getByMatricule(@PathVariable UUID mat) throws Exception {
 		Collegue c = collegueService.getByMatricule(mat);
 		if(c == null) {
 			throw new CollegueException(new MessageErreurDto(CodeErreur.VALIDATION, "Pas de personne ayant ce matricule"));

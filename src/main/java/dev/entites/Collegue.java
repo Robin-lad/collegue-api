@@ -12,6 +12,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.hibernate.annotations.Type;
+
 /**
  * @author robin
  *
@@ -22,6 +24,8 @@ public class Collegue {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
+
+	@Type(type="uuid-char")
 	private UUID matricule;
 	private String nom;
 	private String prenoms;

@@ -4,7 +4,7 @@
 package dev.repository;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -18,8 +18,8 @@ import dev.entites.Collegue;
 public interface CollegueRepository extends JpaRepository<Collegue, Integer>{
 	
 	@Query("select c from Collegue c where c.nom = ?1")
-	Optional<List<Collegue>> findByName(String nom);
+	List<Collegue> findByName(String nom);
 	
 	@Query("select c from Collegue c where c.matricule = ?1")
-	Collegue findByMatricule(String mat);
+	Collegue findByMatricule(UUID mat);
 }
