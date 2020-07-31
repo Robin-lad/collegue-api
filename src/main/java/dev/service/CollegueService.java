@@ -6,6 +6,7 @@ package dev.service;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import javax.transaction.Transactional;
 
@@ -39,7 +40,7 @@ public class CollegueService {
 	}
 	
 	public Collegue getByMatricule(String mat) throws Exception {
-		Collegue c = collegueRepository.findByMatricule(mat);
+		Collegue c = collegueRepository.findByMatricule(UUID.fromString(mat));
 		return c;
 	}
 	
