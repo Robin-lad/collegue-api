@@ -30,8 +30,6 @@ public class CreerCollegueDto {
 	private String email;
 	
 	@NotNull
-	@Size(min = 3)
-	@NotBlank
 	private LocalDate dateDeNaissance;
 	
 	@NotNull

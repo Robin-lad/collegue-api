@@ -52,7 +52,7 @@ public class CollegueController {
 		List<String> list = new ArrayList<>();
 		if(matricules.isPresent()) {
 			for(Collegue col : matricules.get()) {
-				list.add(col.getMatricule());
+				list.add(col.getMatricule().toString());
 			}
 		}
 		if(matricules.isEmpty()) {
@@ -81,6 +81,7 @@ public class CollegueController {
 		
 		CollegueDto collegueDto = new CollegueDto();
 		collegueDto.setId(collegueCreer.getId());
+		collegueDto.setMatricule(collegueCreer.getMatricule());
 		collegueDto.setNom(collegueCreer.getNom());
 		collegueDto.setPrenoms(collegueCreer.getPrenoms());
 		collegueDto.setEmail(collegueCreer.getEmail());

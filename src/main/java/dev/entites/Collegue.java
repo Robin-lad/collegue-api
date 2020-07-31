@@ -4,6 +4,7 @@
 package dev.entites;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,7 +22,7 @@ public class Collegue {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-	private String matricule;
+	private UUID matricule;
 	private String nom;
 	private String prenoms;
 	private String email;
@@ -30,11 +31,14 @@ public class Collegue {
 	@Column(name="photourl")
 	private String photoUrl;
 	
-	public Collegue() {}
+	public Collegue() {
+		this.matricule = UUID.randomUUID();
+	}
 	
 	public Collegue(String nom, String prenoms, String email, LocalDate dateDeNaissance,
 			String photoUrl) {
 		super();
+		this.matricule = UUID.randomUUID();
 		this.nom = nom;
 		this.prenoms = prenoms;
 		this.email = email;
@@ -64,7 +68,7 @@ public class Collegue {
 	 * Getter
 	 * @return the matricule
 	 */
-	public String getMatricule() {
+	public UUID getMatricule() {
 		return matricule;
 	}
 
@@ -72,7 +76,7 @@ public class Collegue {
 	 * Setter
 	 * @param matricule the matricule to set
 	 */
-	public void setMatricule(String matricule) {
+	public void setMatricule(UUID matricule) {
 		this.matricule = matricule;
 	}
 
