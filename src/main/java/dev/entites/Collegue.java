@@ -31,9 +31,7 @@ public class Collegue {
 	@Column(name="photourl")
 	private String photoUrl;
 	
-	public Collegue() {
-		this.matricule = UUID.randomUUID();
-	}
+	public Collegue() {}
 	
 	public Collegue(String nom, String prenoms, String email, LocalDate dateDeNaissance,
 			String photoUrl) {
