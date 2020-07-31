@@ -1,80 +1,43 @@
 /**
  * 
  */
-package dev.entites;
+package dev.dto;
 
 import java.time.LocalDate;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * @author robin
  *
  */
-@Entity
-public class Collegue {
-
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
-	private String matricule;
+public class CreerCollegueDto {
+	
+	@NotNull
+	@Size(min = 3)
 	private String nom;
+	
+	@NotNull
+	@Size(min = 3)
+	@NotBlank
 	private String prenoms;
+	
+	@NotNull
+	@Size(min = 3)
+	@NotBlank
 	private String email;
-	@Column(name="datenaissance")
+	
+	@NotNull
+	@Size(min = 3)
+	@NotBlank
 	private LocalDate dateDeNaissance;
-	@Column(name="photourl")
+	
+	@NotNull
+	@Size(min = 3)
+	@NotBlank
 	private String photoUrl;
-	
-	public Collegue() {}
-	
-	public Collegue(String nom, String prenoms, String email, LocalDate dateDeNaissance,
-			String photoUrl) {
-		super();
-		this.nom = nom;
-		this.prenoms = prenoms;
-		this.email = email;
-		this.dateDeNaissance = dateDeNaissance;
-		this.photoUrl = photoUrl;
-	}
-	
-	
-
-	/**
-	 * Getter
-	 * @return the id
-	 */
-	public int getId() {
-		return id;
-	}
-
-	/**
-	 * Setter
-	 * @param id the id to set
-	 */
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	/**
-	 * Getter
-	 * @return the matricule
-	 */
-	public String getMatricule() {
-		return matricule;
-	}
-
-	/**
-	 * Setter
-	 * @param matricule the matricule to set
-	 */
-	public void setMatricule(String matricule) {
-		this.matricule = matricule;
-	}
 
 	/**
 	 * Getter
@@ -155,7 +118,6 @@ public class Collegue {
 	public void setPhotoUrl(String photoUrl) {
 		this.photoUrl = photoUrl;
 	}
-	
 	
 	
 }

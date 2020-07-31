@@ -3,6 +3,7 @@
  */
 package dev.service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,6 +41,14 @@ public class CollegueService {
 	public Collegue getByMatricule(String mat) throws Exception {
 		Collegue c = collegueRepository.findByMatricule(mat);
 		return c;
+	}
+	
+	public Collegue creer(String nom, String prenoms, String email, LocalDate dateNaissance, String photoUrl) {
+		Collegue col = new Collegue(nom, prenoms, email, dateNaissance, photoUrl);
+		
+		Collegue collegueSave = this.collegueRepository.save(col);
+		
+		return collegueSave;
 	}
 	
 }
