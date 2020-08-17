@@ -50,4 +50,8 @@ public class CollegueService {
 		return collegueSave;
 	}
 	
+	public void updateCol(String email, String photoUrl, UUID mat) {
+		this.collegueRepository.updateCollegue(email, photoUrl, mat);
+	}
+	
 }

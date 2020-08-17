@@ -12,6 +12,7 @@ import javax.validation.Valid;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,6 +24,7 @@ import dev.dto.CodeErreur;
 import dev.dto.CollegueDto;
 import dev.dto.CreerCollegueDto;
 import dev.dto.MessageErreurDto;
+import dev.dto.UpdateCollegueDto;
 import dev.entites.Collegue;
 import dev.exception.CollegueException;
 import dev.service.CollegueService;
@@ -91,5 +93,15 @@ public class CollegueController {
 		collegueDto.setPhotoUrl(collegueCreer.getPhotoUrl());
 		
 		return collegueDto;
+	}
+	
+	@PatchMapping
+	public void updateCollegue(@RequestBody @Valid UpdateCollegueDto uCol, BindingResult result) {
+		
+		if(result.hasErrors()) {
+			throw new CollegueException(new MessageErreurDto(CodeErreur.VALIDATION, "Données incorrectes pour la modification d'un client."));
+		}
+		
+		collegueService.updateCol(uCol.getEmail(), uCol.getPhotoUrl(), uCol.getMatricule());
 	}
 }
