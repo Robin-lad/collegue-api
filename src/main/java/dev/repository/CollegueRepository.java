@@ -27,4 +27,5 @@ public interface CollegueRepository extends JpaRepository<Collegue, Integer>{
 	@Modifying
 	@Query("update Collegue c set c.email = ?1, c.photoUrl = ?2 where c.matricule = ?3")
 	void updateCollegue(String email, String photoUrl, UUID mat);
+
 }

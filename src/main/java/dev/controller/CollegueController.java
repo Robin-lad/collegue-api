@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 import dev.dto.CodeErreur;
 import dev.dto.CollegueDto;
 import dev.dto.CreerCollegueDto;
+import dev.dto.ListePhotos;
 import dev.dto.MessageErreurDto;
 import dev.dto.UpdateCollegueDto;
 import dev.entites.Collegue;
@@ -45,9 +46,9 @@ public class CollegueController {
 		this.collegueService = collegueService;
 	}
 	
-	@GetMapping("test/all")
-	public List<Collegue> getAllCollegues(){
-		return collegueService.getListCollegue();
+	@GetMapping("photos")
+	public List<ListePhotos> getAllPhotos(){
+		return collegueService.getListPhotos();
 	}
 	
 	@GetMapping
